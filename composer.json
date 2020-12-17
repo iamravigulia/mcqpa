@@ -1,17 +1,17 @@
 {
-    "name": "edgewizz/fillup",
+    "name": "edgewizz/mcqpa",
     "description": "testing",
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Edgewizz\\Fillup\\": "src"
+            "Edgewizz\\Mcqpa\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Edgewizz\\Fillup\\FillupServiceProvider"
+                "Edgewizz\\Mcqpa\\McqpaServiceProvider"
             ]
         }
     },

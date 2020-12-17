@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFillupQuesTable extends Migration
+class CreateMcqpaQuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateFillupQuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fmt_fillup_ques', function (Blueprint $table) {
+        Schema::create('fmt_mcqpa_ques', function (Blueprint $table) {
             $table->id();
             $table->longText('question')->nullable();
             $table->foreignId('media_id')->nullable();
-            $table->boolean('active')->default(0);
+            $table->foreignId('image_id')->nullable();
+            $table->foreignId('audio_id')->nullable();
+            $table->tinyInteger('active')->default(1);
             $table->string('hint')->nullable();
+            $table->foreignId('difficulty_level_id')->nullable()->comment = 'id from difficulty_levels table';
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateFillupQuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fmt_fillup_ques');
+        Schema::dropIfExists('fmt_mcqpa_ques');
     }
 }
